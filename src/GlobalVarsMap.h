@@ -119,7 +119,7 @@ public:
 	/// <param name="name">Name</param>
 	/// <param name="value">Value</param>
 	/// <returns>True on success, false when the variable does not exist or variable is of a different type</returns>
-	bool SetDouble(const string name, double value);
+	bool SetDouble(const string name, double value); 
 
     /// <summary>
     /// Assign a value to a boolean variable

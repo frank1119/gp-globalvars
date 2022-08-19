@@ -2,7 +2,6 @@
 #include <malloc.h>
 #include "string"
 
-
 using GPUtils = gigperformer::sdk::GPUtils;
 using namespace std;
 

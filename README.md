@@ -1,5 +1,5 @@
 # GP Extension GlobalVars for C++
-
+ 
 This is extension using the [Gig Performer SDK](https://github.com/gigperformer/gp-sdk).
 It is based on the gp-extension-c++ example.
 

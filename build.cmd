@@ -1,5 +1,5 @@
 @echo off
-
+ 
 :: Could be any of the Windows presets in CMakePresets.json
 set PRESET=windows-native
 
