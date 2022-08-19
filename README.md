@@ -1,6 +1,6 @@
 # C++ Gig Performer Extension GlobalVars 
-Gig Performer is a live performance VST-host with lots of features. See [Gig Performer](https://gigperformer.com/) for details
-This is extension using the [Gig Performer SDK](https://github.com/gigperformer/gp-sdk).
+Gig Performer is a live performance VST-host with lots of features. See [Gig Performer](https://gigperformer.com/) for details.  
+This is extension using the [Gig Performer SDK](https://github.com/gigperformer/gp-sdk).  
 It is based on the gp-extension-cpp example.
 
 ## Purpose
