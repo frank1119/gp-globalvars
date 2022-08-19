@@ -1,6 +1,5 @@
 #pragma once
 
-
 #include "gigperformer/sdk/GPMidiMessages.h"
 #include "gigperformer/sdk/GPUtils.h"
 #include "gigperformer/sdk/GigPerformerAPI.h"

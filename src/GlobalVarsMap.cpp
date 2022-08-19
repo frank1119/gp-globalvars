@@ -1,6 +1,5 @@
 #include "GlobalVarsMap.h"
 
-
 bool GlobalVarsMap::CreateString(const string name)
 {
 	if (dict.count(name) == 0)

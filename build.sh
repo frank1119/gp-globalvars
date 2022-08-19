@@ -1,5 +1,5 @@
 #!/bin/sh
- 
+
 PRESET="mac-universal"        # could be any of the macOS presets in CMakePresets.json
 BUILD_CONFIGURATION="Release" # could be "Debug" as well
 

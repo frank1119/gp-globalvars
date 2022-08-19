@@ -1,6 +1,5 @@
 #include "GlobalVar.h"
 
-
 #pragma region Assignations
 bool GlobalVar::assignString(string newVal)
 {

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.21)
- 
+
 # Let's choose a name and version for the extension. Change the name to your
 # liking. The version should be a string like "1.0".
 set(PROJECT_NAME "GlobalVars-Ext") # Change this to your liking
