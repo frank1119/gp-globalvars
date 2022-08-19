@@ -1,7 +1,6 @@
 # C++ Gig Performer Extension GlobalVars 
 Gig Performer is a live performance VST-host with lots of features. See [Gig Performer](https://gigperformer.com/) for details.  
-This is extension using the [Gig Performer SDK](https://github.com/gigperformer/gp-sdk).  
-It is based on the gp-extension-cpp example.
+This extension uses the [Gig Performer SDK](https://github.com/gigperformer/gp-sdk) and is based on the gp-extension-cpp example.
 
 ## Purpose
 Provides global variables accessible between the several script types, like gig-script, rackspace-scrips, scriptlets and song-scripts. GPscript lacks this.  
