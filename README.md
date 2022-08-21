@@ -48,3 +48,151 @@ These instructions are a copy of build instructions for the gp-extension-cpp exa
     ```
 
     **Make sure to run the script from the Visual Studio developer command prompt!**
+
+## How to use
+
+### Declare a variable
+Some examples
+
+-   Integer declaration
+    
+    ```gpscript
+    var
+        b : boolean
+        
+        b = GlobalVars_CreateInt("NumberOfSongparts")
+        Print(b)
+    ```
+
+-   String declaration
+    
+    ```gpscript
+    var
+        b : boolean
+        
+        b = GlobalVars_CreateString("Author")
+        Print(b)
+    ```
+    
+-   Declaration with an error
+    
+    ```gpscript
+    var
+        b : boolean
+        
+        b = GlobalVars_CreateString("global_1")
+        
+        b = GlobalVars_CreateInt("global_1") // Will return false: global_1 already exists
+        Print(b)
+    ```
+    
+-   Integer array declaration
+
+    ```gpscript
+    var
+        b : boolean
+        
+        b = GlobalVars_CreateIntArray("PowersOfTwo", 10)
+        Print(b)
+    ```
+    
+### Assigning a value
+Some examples
+
+-   Assigning an integer
+    
+    ```gpscript
+    var
+        b : boolean
+        
+        b = GlobalVars_SetInt("NumberOfSongparts", 100)
+        Print(b)
+    ```
+    
+-   Assigning an integer in an array
+
+    ```gpscript
+    var
+        b : boolean
+        
+        b = GlobalVars_SetIntInArray("PowersOfTwo", 0, 1)
+        Print(b)
+        b = GlobalVars_SetIntInArray("PowersOfTwo", 1, 2)
+        Print(b)
+        b = GlobalVars_SetIntInArray("PowersOfTwo", 2, 4)
+        Print(b)
+        b = GlobalVars_SetIntInArray("PowersOfTwo", 3, 8)
+        Print(b)
+    ```
+
+-   Assigning a string
+    
+    ```gpscript
+    var
+        b : boolean
+        author : string
+        
+        author = "Frank"
+        
+        b = GlobalVars_SetString("Author", author, Length(author))
+        Print(b)
+    ```
+
+-   Assigning a string in an array
+    
+    ```gpscript
+    var
+        b : boolean
+        contributor : string
+        
+        contributor = "Frank"
+        b = GlobalVars_SetStringInArray("Contributors", 0, contributor, Length(contributor))
+        Print(b)
+        
+        contributor = "Tom"
+        b = GlobalVars_SetStringInArray("Contributors", 1, contributor, Length(contributor))
+        Print(b)
+    ```
+
+### Getting values
+
+-   Getting an integer
+
+    ```gpscript
+        Print (GlobalVars_GetInt("NumberOfSongparts"))
+    ```
+
+-   Getting a string
+
+    ```gpscript
+        Print (GlobalVars_GetString("Author"))
+    ```
+
+-   Getting an integer from an array
+
+    ```gpscript
+        Print (GlobalVars_GetIntFromArray("PowersOfTwo", 2))
+        Print (GlobalVars_GetIntFromArray("PowersOfTwo", 3))
+    ```
+
+-   Getting a string from an array
+
+    ```gpscript
+        Print (GlobalVars_GetStringFromArray("Contributors", 0))
+        Print (GlobalVars_GetStringFromArray("Contributors", 1))
+    ```
+
+### Removing variables
+
+-   Removing specific variables
+
+    ```gpscript
+        Print (GlobalVars_DestroyVariable("Contributors"))
+        Print (GlobalVars_DestroyVariable(NumberOfSongparts))
+    ```
+
+-   Erase all
+
+    ```gpscript
+        GlobalVars_RemoveAll()
+    ```
