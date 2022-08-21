@@ -3,34 +3,34 @@
 #pragma region Assignations
 bool GlobalVar::assignString(string newVal)
 {
-	if (valueType == valueTypes::typeString)
-	{
-		if (s != nullptr)
-			delete s;
-		s = new string(newVal);
-		return true;
-	}
-	return false;
+    if (valueType == valueTypes::typeString)
+    {
+        if (s != nullptr)
+            delete s;
+        s = new string(newVal);
+        return true;
+    }
+    return false;
 }
 
 bool GlobalVar::assignInt(int newVal)
 {
-	if (valueType == valueTypes::typeInt)
-	{
-		i = newVal;
-		return true;
-	}
-	return false;
+    if (valueType == valueTypes::typeInt)
+    {
+        i = newVal;
+        return true;
+    }
+    return false;
 }
 
 bool GlobalVar::assignDouble(double newVal)
 {
-	if (valueType == valueTypes::typeDouble)
-	{
-		d = newVal;
-		return true;
-	}
-	return false;
+    if (valueType == valueTypes::typeDouble)
+    {
+        d = newVal;
+        return true;
+    }
+    return false;
 }
 
 bool GlobalVar::assignBool(bool newVal)
@@ -45,37 +45,37 @@ bool GlobalVar::assignBool(bool newVal)
 
 bool GlobalVar::assignString(int index, string newVal)
 {
-	if (sa != nullptr && index >= 0 && index <length)
-	{
-		if ((sa[index]) != nullptr)
-		{
-			delete (sa)[index];
-		}
-		(sa)[index] = new string(newVal);
+    if (sa != nullptr && index >= 0 && index <length)
+    {
+        if ((sa[index]) != nullptr)
+        {
+            delete (sa)[index];
+        }
+        (sa)[index] = new string(newVal);
 
-		return true;
-	}
-	return false;
+        return true;
+    }
+    return false;
 }
 
 bool GlobalVar::assignDouble(int index, double newVal)
 {
-	if (da != nullptr && index >= 0 && index < length)
-	{
-		da[index] = newVal;
-		return true;
-	}
-	return false;
+    if (da != nullptr && index >= 0 && index < length)
+    {
+        da[index] = newVal;
+        return true;
+    }
+    return false;
 }
 
 bool GlobalVar::assignInt(int index, int newVal)
 {
-	if (ia != nullptr && index >= 0 && index < length)
-	{
-		ia[index] = newVal;
-		return true;
-	}
-	return false;
+    if (ia != nullptr && index >= 0 && index < length)
+    {
+        ia[index] = newVal;
+        return true;
+    }
+    return false;
 }
 
 bool GlobalVar::assignBool(int index, bool newVal)
@@ -93,17 +93,17 @@ bool GlobalVar::assignBool(int index, bool newVal)
 #pragma region Getters
 string GlobalVar::getStringValue()
 {
-	return (valueType == valueTypes::typeString && s != nullptr) ? *s : "";
+    return (valueType == valueTypes::typeString && s != nullptr) ? *s : "";
 }
 
 int GlobalVar::getIntValue()
 {
-	return (valueType == valueTypes::typeInt) ? i : 0;
+    return (valueType == valueTypes::typeInt) ? i : 0;
 }
 
 double GlobalVar::getDoubleValue()
 {
-	return (valueType == valueTypes::typeDouble) ? d : 0;
+    return (valueType == valueTypes::typeDouble) ? d : 0;
 }
 
 bool GlobalVar::getBoolValue()
@@ -113,39 +113,39 @@ bool GlobalVar::getBoolValue()
 
 string GlobalVar::getStringValue(int index)
 {
-	if (sa != nullptr)
-	{
-		if (index >= 0 && index < length)
-		{
-			if ((sa)[index] != nullptr)
-				return string(*(sa)[index]);
-		}
-	}
-	return "";
+    if (sa != nullptr)
+    {
+        if (index >= 0 && index < length)
+        {
+            if ((sa)[index] != nullptr)
+                return string(*(sa)[index]);
+        }
+    }
+    return "";
 }
 
 int GlobalVar::getIntValue(int index)
 {
-	if (ia != nullptr)
-	{
-		if (index >= 0 && index < length)
-		{
-			return ia[index];
-		}
-	}
-	return 0;
+    if (ia != nullptr)
+    {
+        if (index >= 0 && index < length)
+        {
+            return ia[index];
+        }
+    }
+    return 0;
 }
 
 double GlobalVar::getDoubleValue(int index)
 {
-	if (da != nullptr)
-	{
-		if (index >= 0 && index < length)
-		{
-			return da[index];
-		}
-	}
-	return 0;
+    if (da != nullptr)
+    {
+        if (index >= 0 && index < length)
+        {
+            return da[index];
+        }
+    }
+    return 0;
 }
 
 bool GlobalVar::getBoolValue(int index)
@@ -162,12 +162,12 @@ bool GlobalVar::getBoolValue(int index)
 
 int GlobalVar::getType()
 {
-	return valueType;
+    return valueType;
 }
 
 int GlobalVar::getSize()
 {
-	return length;
+    return length;
 }
 #pragma endregion
 
@@ -179,7 +179,7 @@ int GlobalVar::getSize()
 /// <param name="type">String, Int or Double</param>
 GlobalVar::GlobalVar(valueTypes type)
 {
-	valueType = type;
+    valueType = type;
 }
 
 /// <summary>
@@ -189,27 +189,27 @@ GlobalVar::GlobalVar(valueTypes type)
 /// <param name="size">Number of elements</param>
 GlobalVar::GlobalVar(arrayTypes type, int size)
 {
-	valueType = type;
-	switch (valueType)
-	{
-	case arrayTypes::arrayString:
-		sa = new string*[size];
-		for (int i = 0; i < size; i++)
-			sa[i] = nullptr;
-		length = size;
-		break;
+    valueType = type;
+    switch (valueType)
+    {
+    case arrayTypes::arrayString:
+        sa = new string*[size];
+        for (int i = 0; i < size; i++)
+            sa[i] = nullptr;
+        length = size;
+        break;
 
-	case arrayTypes::arrayInt:
-		ia = new int[size];
-		length = size;
-		break;
+    case arrayTypes::arrayInt:
+        ia = new int[size];
+        length = size;
+        break;
 
-	case arrayTypes::arrayDouble:
-		da = new double[size];
-		length = size;
-		break;
+    case arrayTypes::arrayDouble:
+        da = new double[size];
+        length = size;
+        break;
 
-	case arrayTypes::arrayBoolean:
+    case arrayTypes::arrayBoolean:
         ba = new bool[size];
         length = size;
         break;
@@ -218,38 +218,38 @@ GlobalVar::GlobalVar(arrayTypes type, int size)
 
 GlobalVar::~GlobalVar()
 {
-	switch (valueType)
-	{
-	case arrayTypes::arrayString:
-		if (sa != nullptr)
-		{
-			for (int i = 0; i < length; i++)
-			{
-				if ((sa)[i] != nullptr)
-					delete (sa)[i];
-			}
-			delete[]*sa;
-			sa = nullptr;
-		}
-		break;
+    switch (valueType)
+    {
+    case arrayTypes::arrayString:
+        if (sa != nullptr)
+        {
+            for (int i = 0; i < length; i++)
+            {
+                if ((sa)[i] != nullptr)
+                    delete (sa)[i];
+            }
+            delete[]*sa;
+            sa = nullptr;
+        }
+        break;
 
-	case arrayTypes::arrayInt:
-		if (ia != nullptr)
-		{
-			delete[] ia;
-			ia = nullptr;
-		}
-		break;
+    case arrayTypes::arrayInt:
+        if (ia != nullptr)
+        {
+            delete[] ia;
+            ia = nullptr;
+        }
+        break;
 
-	case arrayTypes::arrayDouble:
-		if (da != nullptr)
-		{
-			delete[] da;
-			da = nullptr;
-		}
-		break;
+    case arrayTypes::arrayDouble:
+        if (da != nullptr)
+        {
+            delete[] da;
+            da = nullptr;
+        }
+        break;
 
-	case arrayTypes::arrayBoolean:
+    case arrayTypes::arrayBoolean:
         if (ba != nullptr)
         {
             delete[] ba;
@@ -258,12 +258,12 @@ GlobalVar::~GlobalVar()
         break;
 
     case valueTypes::typeString:
-		if (s != nullptr)
-		{
-			delete s;
-			s = nullptr;
-		}
-		break;
-	}
+        if (s != nullptr)
+        {
+            delete s;
+            s = nullptr;
+        }
+        break;
+    }
 }
 #pragma endregion

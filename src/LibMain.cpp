@@ -37,8 +37,8 @@ const string XMLProductDescription =
     "</Library>";
 
 string pathToMe; // This needs to be initialized from the initialization
-                      // section of the LibMain class so it can be used in the
-                      // standalone functions directly below
+                 // section of the LibMain class so it can be used in the
+                 // standalone functions directly below
 
 LibMain::~LibMain()
 {
