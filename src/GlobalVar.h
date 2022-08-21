@@ -26,10 +26,10 @@ enum valueTypes
 enum arrayTypes
 {
     arrayNone = 0,
-    arrayString = 16,
-    arrayInt = 17,
-    arrayDouble = 18,
-    arrayBoolean = 19,
+    arrayString = 17,
+    arrayInt = 18,
+    arrayDouble = 19,
+    arrayBoolean = 20,
 };
 
 /// <summary>
