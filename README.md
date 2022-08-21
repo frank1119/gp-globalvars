@@ -203,7 +203,7 @@ These instructions are a copy of build instructions for the gp-extension-cpp exa
     var
         tp : integer
     
-        tp = GlobalVars_GetVariabeleType("PowersOfTwo")
+        tp = GlobalVars_GetVariableType("PowersOfTwo")
         Print (tp)
         
         // 0 -> Does not exists
