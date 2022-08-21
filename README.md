@@ -223,6 +223,6 @@ These instructions are a copy of build instructions for the gp-extension-cpp exa
     ```gpscript
     Print (GlobalVars_GetArraySize("PowersOfTwo"))
     // -1 -> Not an array or variable does not exist
-    // >= 0 -> Size (although an array with a size of 0 cannot be created
+    // >= 0 -> Size (although an array with a size of 0 cannot be created)
     ```
     
