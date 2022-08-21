@@ -1,7 +1,7 @@
 #pragma once
 
-#include <unordered_map>
 #include "GlobalVar.h"
+#include <unordered_map>
 using namespace std;
 
 /// <summary>
@@ -11,18 +11,18 @@ using namespace std;
 ///
 /// Supported single value types:
 ///        String, Integer, Double
-/// Supported array types: 
+/// Supported array types:
 ///        String, Integer, Double
 /// </summary>
 class GlobalVarsMap
 {
-private:
+  private:
     /// <summary>
     /// The map holding all varaiables
     /// </summary>
-    unordered_map<string, GlobalVar*> dict;
+    unordered_map<string, GlobalVar *> dict;
 
-public:
+  public:
     /// <summary>
     /// Create a variable, type string
     /// </summary>
@@ -50,7 +50,6 @@ public:
     /// <param name="name">Name</param>
     /// <returns>True on success, False when the variable name already exists</returns>
     bool CreateBool(const string name);
-
 
     /// <summary>
     /// Create a variable array, type string
@@ -120,7 +119,7 @@ public:
     /// <param name="name">Name</param>
     /// <param name="value">Value</param>
     /// <returns>True on success, false when the variable does not exist or variable is of a different type</returns>
-    bool SetDouble(const string name, double value); 
+    bool SetDouble(const string name, double value);
 
     /// <summary>
     /// Assign a value to a boolean variable
@@ -148,14 +147,13 @@ public:
     /// <returns>True on success, false when the variable does not exist, index is out of bounds or variable is of a different type</returns>
     bool SetInt(const string name, int index, int value);
 
-
     /// <summary>
     /// Assign a value to a double variable array
     /// </summary>
     /// <param name="name">Name</param>
     /// <param name="index">Array index</param>
     /// <param name="value">Value</param>
-    /// <returns>True on success, false when the variable does not exist, index is out of bounds or variable is of a different type</returns>    
+    /// <returns>True on success, false when the variable does not exist, index is out of bounds or variable is of a different type</returns>
     bool SetDouble(const string name, int index, double value);
 
     /// <summary>
@@ -243,6 +241,4 @@ public:
     void RemoveAll();
 
     ~GlobalVarsMap();
-
 };
-

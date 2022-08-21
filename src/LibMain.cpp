@@ -1,7 +1,6 @@
 #include "LibMain.h"
-#include <malloc.h>
 #include "string"
-
+#include <malloc.h>
 
 using GPUtils = gigperformer::sdk::GPUtils;
 using namespace std;
@@ -13,13 +12,14 @@ GlobalVarsMap gv;
 
 /// <summary>
 /// Holds the constructed object.
-/// Provides a way to execute GP_Functions like consoleLog(..) 
+/// Provides a way to execute GP_Functions like consoleLog(..)
 /// </summary>
 LibMain *libmainObj = nullptr;
 
 /// Ignore a given value
 /// \details this is a dummy function to suppress compiler warnings about unused parameters
-template <typename T> void Ignore(T const &) noexcept
+template <typename T>
+void Ignore(T const &) noexcept
 {
 }
 
@@ -54,7 +54,7 @@ void LibMain::OnStatusChanged(GPStatusType status)
 
 void LibMain::Initialization()
 {
-    // Dirty way to make some instance methods, like consoleLog() available for 
+    // Dirty way to make some instance methods, like consoleLog() available for
     // library-defined script functions
     libmainObj = this;
     // Do any initialization that you need
@@ -134,7 +134,7 @@ extern "C" void CreateIntArray(GPRuntimeEngine *vm)
 {
     char buffer[100];
     int size = GP_VM_PopInteger(vm);
-   
+
     GP_VM_PopString(vm, buffer, 100);
 
     bool res = gv.CreateInt(buffer, size);
@@ -425,54 +425,34 @@ ExternalAPI_GPScriptFunctionDefinition functionList[] = {
     {"CreateDouble", "name:String", "Returns boolean", "Creates a global double", CreateDouble},
     {"CreateBoolean", "name:String", "Returns boolean", "Creates a global boolean", CreateBool},
 
-    {"CreateStringArray", "name:String, size:integer", "Returns boolean", "Creates a global string array",
-     CreateStringArray},
-    {"CreateIntArray", "name:String, size:integer", "Returns boolean", "Creates a global integer array",
-     CreateIntArray},
-    {"CreateDoubleArray", "name:String, size:integer", "Returns boolean", "Creates a global double array",
-     CreateDoubleArray},
-    {"CreateBooleanArray", "name:String, size:integer", "Returns boolean", "Creates a global boolean array",
-     CreateBoolArray},
+    {"CreateStringArray", "name:String, size:integer", "Returns boolean", "Creates a global string array", CreateStringArray},
+    {"CreateIntArray", "name:String, size:integer", "Returns boolean", "Creates a global integer array", CreateIntArray},
+    {"CreateDoubleArray", "name:String, size:integer", "Returns boolean", "Creates a global double array", CreateDoubleArray},
+    {"CreateBooleanArray", "name:String, size:integer", "Returns boolean", "Creates a global boolean array", CreateBoolArray},
 
-
-    {"SetString", "name:String, value:String, len:integer", "Returns boolean", "Assigns a string value",
-     SetString},
+    {"SetString", "name:String, value:String, len:integer", "Returns boolean", "Assigns a string value", SetString},
     {"SetInt", "name:String, value:integer", "Returns boolean", "Assigns an integer value", SetInt},
     {"SetDouble", "name:String, value:Double", "Returns boolean", "Assigns a double value", SetDouble},
     {"SetBoolean", "name:String, value:boolean", "Returns boolean", "Assigns a boolean value", SetBool},
 
-    {"SetStringInArray", "name:String, index:integer, value:String, len:integer", "Returns boolean",
-     "Assigns a string value", SetStringInArray},
-    {"SetIntInArray", "name:String, index:integer, value:integer", "Returns boolean", "Assigns an integer value",
-     SetIntInArray},
-    {"SetDoubleInArray", "name:String, index:integer, value:Double", "Returns boolean", "Assigns a double value",
-     SetDoubleInArray},
-    {"SetBooleanInArray", "name:String, index:integer, value:boolean", "Returns boolean", "Assigns a boolean value",
-     SetBoolInArray},
-
+    {"SetStringInArray", "name:String, index:integer, value:String, len:integer", "Returns boolean", "Assigns a string value", SetStringInArray},
+    {"SetIntInArray", "name:String, index:integer, value:integer", "Returns boolean", "Assigns an integer value", SetIntInArray},
+    {"SetDoubleInArray", "name:String, index:integer, value:Double", "Returns boolean", "Assigns a double value", SetDoubleInArray},
+    {"SetBooleanInArray", "name:String, index:integer, value:boolean", "Returns boolean", "Assigns a boolean value", SetBoolInArray},
 
     {"GetStringValue", "name:String", "Returns string", "Retrieves the value of a global string", GetStringValue},
     {"GetIntValue", "name:String", "Returns integer", "Retrieves the value of a global integer", GetIntValue},
     {"GetDoubleValue", "name:String", "Returns Double", "Retrieves the value of a global double", GetDoubleValue},
     {"GetBooleanValue", "name:String", "Returns boolean", "Retrieves the value of a global boolean", GetBoolValue},
 
-    {"GetStringValueFromArray", "name:String, index:integer", "Returns string",
-     "Retrieves the value of a global string", GetStringValueFromArray},
-    {"GetIntValueFromArray", "name:String, index:integer", "Returns integer", "Retrieves the value of a global integer",
-     GetIntValueFromArray},
-    {"GetDoubleValueFromArray", "name:String, index:integer", "Returns Double",
-     "Retrieves the value of a global double", GetDoubleValueFromArray},
-    {"GetBooleanValueFromArray", "name:String, index:integer", "Returns boolean",
-     "Retrieves the value of a global boolean", GetBoolValueFromArray},
-
+    {"GetStringValueFromArray", "name:String, index:integer", "Returns string", "Retrieves the value of a global string", GetStringValueFromArray},
+    {"GetIntValueFromArray", "name:String, index:integer", "Returns integer", "Retrieves the value of a global integer", GetIntValueFromArray},
+    {"GetDoubleValueFromArray", "name:String, index:integer", "Returns Double", "Retrieves the value of a global double", GetDoubleValueFromArray},
+    {"GetBooleanValueFromArray", "name:String, index:integer", "Returns boolean", "Retrieves the value of a global boolean", GetBoolValueFromArray},
 
     {"DestroyVariable", "name:String", "Returns boolean", "Removes a global variable", DestroyVariable},
-    {"GetVariableType", "name:String", "Returns integer", "Get the type of a variable or 0 if it does not exist",
-     GetVariableType},
-
-    {"GetArraySize", "name:String", "Returns integer", "Get the size of an array or -1 if there is no such array",
-     GetArraySize},
-
+    {"GetVariableType", "name:String", "Returns integer", "Get the type of a variable or 0 if it does not exist", GetVariableType},
+    {"GetArraySize", "name:String", "Returns integer", "Get the size of an array or -1 if there is no such array", GetArraySize},
     {"RemoveAll", "", "", "Erases all Variables", RemoveAll},
 
 };
@@ -488,7 +468,6 @@ int LibMain::RequestGPScriptFunctionSignatureList(GPScript_AllowedLocations loca
 }
 
 #pragma endregion
-
 
 namespace gigperformer
 {

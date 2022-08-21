@@ -1,8 +1,8 @@
 #pragma once
 
 #include <iostream>
-#include <unordered_map>
 #include <string>
+#include <unordered_map>
 
 using namespace std;
 
@@ -39,25 +39,25 @@ enum arrayTypes
 /// </summary>
 struct GlobalVar
 {
-private:
+  private:
 #pragma region Declarations
     int valueType;
     int length = -1;
 
     // Array placeholders
-    string** sa = nullptr;
-    int* ia = nullptr;
-    double* da = nullptr;
-    bool* ba = nullptr;
+    string **sa = nullptr;
+    int *ia = nullptr;
+    double *da = nullptr;
+    bool *ba = nullptr;
 
     // Single value placeholders
-    string* s = nullptr;
+    string *s = nullptr;
     int i = 0;
     double d = 0;
     bool b = false;
 #pragma endregion
 
-public:
+  public:
 #pragma region Assignments
     /// <summary>
     /// Assign a value to a string
@@ -136,7 +136,7 @@ public:
     /// </summary>
     /// <returns>The assigned integer</returns>
     int getIntValue();
-    
+
     /// <summary>
     /// Get the double value
     /// </summary>
@@ -177,7 +177,6 @@ public:
     /// <returns>The assigned boolean</returns>
     bool getBoolValue(int index);
 
-
     /// <summary>
     /// Get the type of a particular variable
     /// </summary>
@@ -191,16 +190,16 @@ public:
     int getSize();
 #pragma endregion
 
-#pragma region Constructor/Destructor
+#pragma region Constructor / Destructor
 
     /// <summary>
-    /// Construct a single ValueItem 
+    /// Construct a single ValueItem
     /// </summary>
     /// <param name="type">String, Int or Double</param>
     GlobalVar(valueTypes type);
 
     /// <summary>
-    /// Construct an array - ValueItem 
+    /// Construct an array - ValueItem
     /// </summary>
     /// <param name="type">String, Int or Double</param>
     /// <param name="size">Number of elements</param>
@@ -208,5 +207,4 @@ public:
 
     ~GlobalVar();
 #pragma endregion
-
 };

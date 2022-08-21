@@ -45,7 +45,7 @@ bool GlobalVar::assignBool(bool newVal)
 
 bool GlobalVar::assignString(int index, string newVal)
 {
-    if (sa != nullptr && index >= 0 && index <length)
+    if (sa != nullptr && index >= 0 && index < length)
     {
         if ((sa[index]) != nullptr)
         {
@@ -171,10 +171,10 @@ int GlobalVar::getSize()
 }
 #pragma endregion
 
-#pragma region Constructor/Destructor
+#pragma region Constructor / Destructor
 
 /// <summary>
-/// Construct a single ValueItem 
+/// Construct a single ValueItem
 /// </summary>
 /// <param name="type">String, Int or Double</param>
 GlobalVar::GlobalVar(valueTypes type)
@@ -183,7 +183,7 @@ GlobalVar::GlobalVar(valueTypes type)
 }
 
 /// <summary>
-/// Construct an array - ValueItem 
+/// Construct an array - ValueItem
 /// </summary>
 /// <param name="type">String, Int or Double</param>
 /// <param name="size">Number of elements</param>
@@ -193,7 +193,7 @@ GlobalVar::GlobalVar(arrayTypes type, int size)
     switch (valueType)
     {
     case arrayTypes::arrayString:
-        sa = new string*[size];
+        sa = new string *[size];
         for (int i = 0; i < size; i++)
             sa[i] = nullptr;
         length = size;
@@ -228,7 +228,7 @@ GlobalVar::~GlobalVar()
                 if ((sa)[i] != nullptr)
                     delete (sa)[i];
             }
-            delete[]*sa;
+            delete[] * sa;
             sa = nullptr;
         }
         break;

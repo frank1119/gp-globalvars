@@ -3,8 +3,8 @@
 bool GlobalVarsMap::CreateString(const string name)
 {
     if (dict.count(name) == 0)
-    { 
-        GlobalVar* v = new GlobalVar(valueTypes::typeString);
+    {
+        GlobalVar *v = new GlobalVar(valueTypes::typeString);
         dict[name] = v;
         return true;
     }
@@ -15,7 +15,7 @@ bool GlobalVarsMap::CreateInt(const string name)
 {
     if (dict.count(name) == 0)
     {
-        GlobalVar* v = new GlobalVar(valueTypes::typeInt);
+        GlobalVar *v = new GlobalVar(valueTypes::typeInt);
         dict[name] = v;
         return true;
     }
@@ -26,7 +26,7 @@ bool GlobalVarsMap::CreateDouble(const string name)
 {
     if (dict.count(name) == 0)
     {
-        GlobalVar* v = new GlobalVar(valueTypes::typeDouble);
+        GlobalVar *v = new GlobalVar(valueTypes::typeDouble);
         dict[name] = v;
         return true;
     }
@@ -44,12 +44,11 @@ bool GlobalVarsMap::CreateBool(const string name)
     return false;
 }
 
-
 bool GlobalVarsMap::CreateString(const string name, int length)
 {
     if (dict.count(name) == 0 && length > 0 && length < INT_MAX)
     {
-        GlobalVar* v = new GlobalVar(arrayTypes::arrayString, length);
+        GlobalVar *v = new GlobalVar(arrayTypes::arrayString, length);
         dict[name] = v;
         return true;
     }
@@ -60,7 +59,7 @@ bool GlobalVarsMap::CreateInt(const string name, int length)
 {
     if (dict.count(name) == 0 && length > 0 && length < INT_MAX)
     {
-        GlobalVar* v = new GlobalVar(arrayTypes::arrayInt, length);
+        GlobalVar *v = new GlobalVar(arrayTypes::arrayInt, length);
         dict[name] = v;
         return true;
     }
@@ -71,7 +70,7 @@ bool GlobalVarsMap::CreateDouble(const string name, int length)
 {
     if (dict.count(name) == 0 && length > 0 && length < INT_MAX)
     {
-        GlobalVar* v = new GlobalVar(arrayTypes::arrayDouble, length);
+        GlobalVar *v = new GlobalVar(arrayTypes::arrayDouble, length);
         dict[name] = v;
         return true;
     }
@@ -217,7 +216,7 @@ bool GlobalVarsMap::DestroyVariable(const string name)
 {
     if (dict.count(name) == 1)
     {
-        GlobalVar* v = dict[name];
+        GlobalVar *v = dict[name];
         dict.erase(name);
         delete v;
         return true;
@@ -236,4 +235,3 @@ GlobalVarsMap::~GlobalVarsMap()
 {
     RemoveAll();
 }
-
