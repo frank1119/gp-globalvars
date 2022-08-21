@@ -206,7 +206,7 @@ These instructions are a copy of build instructions for the gp-extension-cpp exa
         tp = GlobalVars_GetVariableType("PowersOfTwo")
         Print (tp)
         
-        // 0 -> Does not exists
+        // 0 -> Does not exist
         // 1 -> String value
         // 2 -> Integer value
         // 3 -> Double value
