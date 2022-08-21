@@ -186,7 +186,7 @@ These instructions are a copy of build instructions for the gp-extension-cpp exa
 
     ```gpscript
     Print (GlobalVars_DestroyVariable("Contributors"))
-    Print (GlobalVars_DestroyVariable(NumberOfSongparts))
+    Print (GlobalVars_DestroyVariable("NumberOfSongparts"))
     ```
 
 -   Erase all
