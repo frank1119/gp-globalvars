@@ -159,27 +159,27 @@ Some examples
 -   Getting an integer
 
     ```gpscript
-        Print (GlobalVars_GetInt("NumberOfSongparts"))
+    Print (GlobalVars_GetInt("NumberOfSongparts"))
     ```
 
 -   Getting a string
 
     ```gpscript
-        Print (GlobalVars_GetString("Author"))
+    Print (GlobalVars_GetString("Author"))
     ```
 
 -   Getting an integer from an array
 
     ```gpscript
-        Print (GlobalVars_GetIntFromArray("PowersOfTwo", 2))
-        Print (GlobalVars_GetIntFromArray("PowersOfTwo", 3))
+    Print (GlobalVars_GetIntFromArray("PowersOfTwo", 2))
+    Print (GlobalVars_GetIntFromArray("PowersOfTwo", 3))
     ```
 
 -   Getting a string from an array
 
     ```gpscript
-        Print (GlobalVars_GetStringFromArray("Contributors", 0))
-        Print (GlobalVars_GetStringFromArray("Contributors", 1))
+    Print (GlobalVars_GetStringFromArray("Contributors", 0))
+    Print (GlobalVars_GetStringFromArray("Contributors", 1))
     ```
 
 ### Removing variables
@@ -187,12 +187,45 @@ Some examples
 -   Removing specific variables
 
     ```gpscript
-        Print (GlobalVars_DestroyVariable("Contributors"))
-        Print (GlobalVars_DestroyVariable(NumberOfSongparts))
+    Print (GlobalVars_DestroyVariable("Contributors"))
+    Print (GlobalVars_DestroyVariable(NumberOfSongparts))
     ```
 
 -   Erase all
 
     ```gpscript
-        GlobalVars_RemoveAll()
+    GlobalVars_RemoveAll()
     ```
+
+### Informational
+
+-   Variable type
+
+    ```gpscript
+    var
+        tp : integer
+    
+        tp = GlobalVars_GetVariabeleType("PowersOfTwo")
+        Print (tp)
+        
+        // 0 -> Does not exists
+        // 1 -> String value
+        // 2 -> Integer value
+        // 3 -> Double value
+        // 4 -> Boolean value
+
+        // 17 -> String array
+        // 18 -> Integer array
+        // 19 -> Double array
+        // 20 -> Boolean array
+    ```
+
+-   Array size
+
+    ```gpscript
+    Print (GlobalVars_GetArraySize("PowersOfTwo"))
+    // -1 -> Not an array or variable does not exist
+    // >= 0 -> Size (although an array with a size of 0 cannot be created
+    ```
+    
+    
