@@ -197,7 +197,7 @@ These instructions are a copy of build instructions for the gp-extension-cpp exa
     ```
 
 ### Enabling auto Removing variables when loading a new Gig
-Default variables created in one Gig will not be erased when a new Gig
+By default, variables created in one Gig will not be erased when a new Gig
 is loaded.
 
 -   Enable:
