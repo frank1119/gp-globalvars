@@ -2,6 +2,7 @@
 
 #include "GlobalVar.h"
 #include <unordered_map>
+#include <regex>
 using namespace std;
 
 /// <summary>

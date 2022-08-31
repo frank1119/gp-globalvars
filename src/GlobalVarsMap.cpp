@@ -1,89 +1,114 @@
 #include "GlobalVarsMap.h"
+#define reg regex("[A-Za-z][A-Za-z0-9_]{0,39}")
 
 bool GlobalVarsMap::CreateString(const string name)
 {
-    if (dict.count(name) == 0)
+    if (std::regex_match(name.c_str(), reg))
     {
-        GlobalVar *v = new GlobalVar(valueTypes::typeString);
-        dict[name] = v;
-        return true;
+        if (dict.count(name) == 0)
+        {
+            GlobalVar *v = new GlobalVar(valueTypes::typeString);
+            dict[name] = v;
+            return true;
+        }
     }
     return false;
 }
 
 bool GlobalVarsMap::CreateInt(const string name)
 {
-    if (dict.count(name) == 0)
+    if (std::regex_match(name.c_str(), reg))
     {
-        GlobalVar *v = new GlobalVar(valueTypes::typeInt);
-        dict[name] = v;
-        return true;
+        if (dict.count(name) == 0)
+        {
+            GlobalVar *v = new GlobalVar(valueTypes::typeInt);
+            dict[name] = v;
+            return true;
+        }
     }
     return false;
 }
 
 bool GlobalVarsMap::CreateDouble(const string name)
 {
-    if (dict.count(name) == 0)
+    if (std::regex_match(name.c_str(), reg))
     {
-        GlobalVar *v = new GlobalVar(valueTypes::typeDouble);
-        dict[name] = v;
-        return true;
+        if (dict.count(name) == 0)
+        {
+            GlobalVar *v = new GlobalVar(valueTypes::typeDouble);
+            dict[name] = v;
+            return true;
+        }
     }
     return false;
 }
 
 bool GlobalVarsMap::CreateBool(const string name)
 {
-    if (dict.count(name) == 0)
+    if (std::regex_match(name.c_str(), reg))
     {
-        GlobalVar *v = new GlobalVar(valueTypes::typeBoolean);
-        dict[name] = v;
-        return true;
+        if (dict.count(name) == 0)
+        {
+            GlobalVar *v = new GlobalVar(valueTypes::typeBoolean);
+            dict[name] = v;
+            return true;
+        }
     }
     return false;
 }
 
 bool GlobalVarsMap::CreateString(const string name, int length)
 {
-    if (dict.count(name) == 0 && length > 0 && length < INT_MAX)
+    if (std::regex_match(name.c_str(), reg))
     {
-        GlobalVar *v = new GlobalVar(arrayTypes::arrayString, length);
-        dict[name] = v;
-        return true;
+        if (dict.count(name) == 0 && length > 0 && length < INT_MAX)
+        {
+            GlobalVar *v = new GlobalVar(arrayTypes::arrayString, length);
+            dict[name] = v;
+            return true;
+        }
     }
     return false;
 }
 
 bool GlobalVarsMap::CreateInt(const string name, int length)
 {
-    if (dict.count(name) == 0 && length > 0 && length < INT_MAX)
+    if (std::regex_match(name.c_str(), reg))
     {
-        GlobalVar *v = new GlobalVar(arrayTypes::arrayInt, length);
-        dict[name] = v;
-        return true;
+        if (dict.count(name) == 0 && length > 0 && length < INT_MAX)
+        {
+            GlobalVar *v = new GlobalVar(arrayTypes::arrayInt, length);
+            dict[name] = v;
+            return true;
+        }
     }
     return false;
 }
 
 bool GlobalVarsMap::CreateDouble(const string name, int length)
 {
-    if (dict.count(name) == 0 && length > 0 && length < INT_MAX)
+    if (std::regex_match(name.c_str(), reg))
     {
-        GlobalVar *v = new GlobalVar(arrayTypes::arrayDouble, length);
-        dict[name] = v;
-        return true;
+        if (dict.count(name) == 0 && length > 0 && length < INT_MAX)
+        {
+            GlobalVar *v = new GlobalVar(arrayTypes::arrayDouble, length);
+            dict[name] = v;
+            return true;
+        }
     }
     return false;
 }
 
 bool GlobalVarsMap::CreateBool(const string name, int length)
 {
-    if (dict.count(name) == 0 && length > 0 && length < INT_MAX)
+    if (std::regex_match(name.c_str(), reg))
     {
-        GlobalVar *v = new GlobalVar(arrayTypes::arrayBoolean, length);
-        dict[name] = v;
-        return true;
+        if (dict.count(name) == 0 && length > 0 && length < INT_MAX)
+        {
+            GlobalVar *v = new GlobalVar(arrayTypes::arrayBoolean, length);
+            dict[name] = v;
+            return true;
+        }
     }
     return false;
 }

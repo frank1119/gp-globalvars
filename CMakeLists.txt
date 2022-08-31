@@ -6,6 +6,7 @@ set(PROJECT_NAME "GlobalVars-Ext") # Change this to your liking
 set(CMAKE_CXX_COMPILER_FORCED TRUE)
 project(${PROJECT_NAME} VERSION 1.0)
 
+
 # Import the SDK
 include(FetchContent)
 FetchContent_Declare(

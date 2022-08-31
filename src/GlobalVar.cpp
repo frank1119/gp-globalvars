@@ -19,7 +19,7 @@ bool GlobalVar::assignInt(int newVal)
     {
         i = newVal;
         return true;
-    }
+    } 
     return false;
 }
 
@@ -31,7 +31,7 @@ bool GlobalVar::assignDouble(double newVal)
         return true;
     }
     return false;
-}
+}  
 
 bool GlobalVar::assignBool(bool newVal)
 {
