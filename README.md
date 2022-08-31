@@ -206,7 +206,7 @@ is loaded.
     Print (GlobalVars_RemoveAllOnLoad(True))
     ```
 
-    -   Disable:
+-   Disable:
 
     ```gpscript
     Print (GlobalVars_RemoveAllOnLoad(False))
