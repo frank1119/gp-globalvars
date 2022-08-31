@@ -10,6 +10,9 @@ using namespace std;
 /// </summary>
 GlobalVarsMap gv;
 
+bool eraseOnReload = false;
+
+
 /// <summary>
 /// Holds the constructed object.
 /// Provides a way to execute GP_Functions like consoleLog(..)
@@ -48,7 +51,7 @@ LibMain::~LibMain()
 #pragma region Events and housekeeping
 void LibMain::OnStatusChanged(GPStatusType status)
 {
-    if (status == GPStatusType::GPStatus_GigStartedLoading)
+    if (status == GPStatusType::GPStatus_GigStartedLoading && eraseOnReload)
         gv.RemoveAll();
 }
 
@@ -179,6 +182,15 @@ extern "C" void DestroyVariable(GPRuntimeEngine *vm)
 extern "C" void RemoveAll(GPRuntimeEngine *vm)
 {
     gv.RemoveAll();
+}
+
+extern "C" void RemoveAllOnLoad(GPRuntimeEngine *vm)
+{
+    bool state = eraseOnReload;
+ 
+    eraseOnReload = GP_VM_PopBoolean(vm);
+    
+    GP_VM_PushBoolean(vm, state);
 }
 #pragma endregion
 
@@ -454,6 +466,8 @@ ExternalAPI_GPScriptFunctionDefinition functionList[] = {
     {"GetVariableType", "name:String", "Returns integer", "Get the type of a variable or 0 if it does not exist", GetVariableType},
     {"GetArraySize", "name:String", "Returns integer", "Get the size of an array or -1 if there is no such array", GetArraySize},
     {"RemoveAll", "", "", "Erases all Variables", RemoveAll},
+
+    {"RemoveAllOnLoad", "enable:boolean", "Returns boolean", "Erase all Variables on Gig load. Returns the previous state", RemoveAllOnLoad},
 
 };
 
