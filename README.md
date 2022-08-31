@@ -196,6 +196,25 @@ These instructions are a copy of build instructions for the gp-extension-cpp exa
     GlobalVars_RemoveAll()
     ```
 
+### Enabling auto Removing variables when loading a new Gig
+Default variables created in one Gig will not be erased when a new Gig
+is loaded.
+
+-   Enable:
+
+    ```gpscript
+    Print (GlobalVars_RemoveAllOnLoad(True))
+    ```
+
+    -   Disable:
+
+    ```gpscript
+    Print (GlobalVars_RemoveAllOnLoad(False))
+    ```
+
+    The returnvalue is the previous state. 
+
+
 ### Informational
 
 -   Variable type
