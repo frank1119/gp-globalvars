@@ -10,9 +10,9 @@ project(${PROJECT_NAME} VERSION 1.0)
 include(FetchContent)
 FetchContent_Declare(
   gp-sdk
-  GIT_REPOSITORY https://github.com/gigperformer/gp-sdk.git
-  GIT_TAG 6c5432518ef42ea0870fb44597e9d1d3780e2f98 # v44
-#   SOURCE_DIR C:/Users/fdenb/source/repos/gpextensions/gp-sdk
+  #GIT_REPOSITORY https://github.com/gigperformer/gp-sdk.git
+  #GIT_TAG 6c5432518ef42ea0870fb44597e9d1d3780e2f98 # v44
+  SOURCE_DIR C:/Users/fdenb/source/repos/gpextensions/gp-sdk
 )
 FetchContent_MakeAvailable(gp-sdk)
 
