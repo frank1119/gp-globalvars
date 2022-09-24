@@ -5,7 +5,6 @@
 .idea/
 .vscode/
 .vs/
-CMakeLists.txt
 
 # Build output
 build/
