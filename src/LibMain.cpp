@@ -17,7 +17,7 @@ bool eraseOnReload = false;
 /// Holds the constructed object.
 /// Provides a way to execute GP_Functions like consoleLog(..)
 /// </summary>
-LibMain *libmainObj = nullptr;
+LibMain *thisObj = nullptr;
 
 /// Ignore a given value
 /// \details this is a dummy function to suppress compiler warnings about unused parameters
@@ -45,7 +45,7 @@ string pathToMe; // This needs to be initialized from the initialization
 
 LibMain::~LibMain()
 {
-    libmainObj = nullptr;
+    thisObj = nullptr;
 }
 
 #pragma region Events and housekeeping
@@ -59,7 +59,7 @@ void LibMain::Initialization()
 {
     // Dirty way to make some instance methods, like consoleLog() available for
     // library-defined script functions
-    libmainObj = this;
+    thisObj = this;
     // Do any initialization that you need
 
     // .... your code here
@@ -90,6 +90,10 @@ extern "C" void CreateString(GPRuntimeEngine *vm)
     bool res = gv.CreateString(buffer);
 
     GP_VM_PushBoolean(vm, res);
+
+    //string rsn = thisObj->getRackspaceName(thisObj->getCurrentRackspaceIndex());
+    
+    //thisObj->consoleLog ("Testje " + rsn);
 }
 
 extern "C" void CreateInt(GPRuntimeEngine *vm)

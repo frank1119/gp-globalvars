@@ -111,7 +111,7 @@ bool GlobalVarsMap::CreateBool(const string name, int length)
         }
     }
     return false;
-}
+} 
 
 int GlobalVarsMap::GetVariableType(const string name)
 {
@@ -131,7 +131,7 @@ bool GlobalVarsMap::SetString(const string name, const string value)
         return dict[name]->assignString(value);
     return false;
 }
-
+ 
 bool GlobalVarsMap::SetInt(const string name, int value)
 {
     if (dict.count(name) == 1)

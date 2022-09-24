@@ -18,7 +18,7 @@ bool GlobalVar::assignInt(int newVal)
     if (valueType == valueTypes::typeInt)
     {
         i = newVal;
-        return true;
+        return true; 
     } 
     return false;
 }
