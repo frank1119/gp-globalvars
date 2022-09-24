@@ -5,6 +5,7 @@
 .idea/
 .vscode/
 .vs/
+help.txt
 
 # Build output
 build/
