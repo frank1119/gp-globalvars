@@ -17,7 +17,7 @@ bool eraseOnReload = false;
 /// Holds the constructed object.
 /// Provides a way to execute GP_Functions like consoleLog(..)
 /// </summary>
-LibMain *thisObj = nullptr;
+LibMain *LibMain::thisObj = nullptr;
 
 /// Ignore a given value
 /// \details this is a dummy function to suppress compiler warnings about unused parameters
@@ -33,9 +33,9 @@ const string XMLProductDescription =
     "  <Product"
     "    Name=\"GlobalVars\""
     "    Version=\"1.0\""
-    "    BuildDate=\"08/18/2022\">"
+    "    BuildDate=\"09/23/2023\">"
     "  </Product> "
-    "  <Description>Support for sharing variables between all scripts. (c) 2022 F. den Blaauwen</Description>"
+    "  <Description>Support for sharing variables between all scripts. (c) 2022-2023 F. den Blaauwen</Description>"
     "  <ImagePath>/Path/To/ImageFile/foo.jpg</ImagePath>"
     "</Library>";
 
@@ -59,7 +59,7 @@ void LibMain::Initialization()
 {
     // Dirty way to make some instance methods, like consoleLog() available for
     // library-defined script functions
-    thisObj = this;
+    //LibMain::thisObj = this;
     // Do any initialization that you need
 
     // .... your code here
@@ -69,7 +69,7 @@ void LibMain::Initialization()
     registerCallback("OnStatusChanged");
 
     pathToMe = getPathToMe();
-    consoleLog("path to library " + pathToMe);
+    //consoleLog("path to library " + pathToMe);
 }
 
 string LibMain::GetProductDescription()

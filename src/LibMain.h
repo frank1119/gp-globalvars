@@ -5,15 +5,17 @@
 #include "gigperformer/sdk/GPUtils.h"
 #include "gigperformer/sdk/GigPerformerAPI.h"
 #include "gigperformer/sdk/types.h"
-
+class LibMain;
 class LibMain : public gigperformer::sdk::GigPerformerAPI
 {
   protected:
   public:
-    // These must be here but no need to do anything unless you want extra behavior
+    static LibMain *thisObj;
+      // These must be here but no need to do anything unless you want extra behavior
     explicit LibMain(LibraryHandle handle)
         : GigPerformerAPI(handle)
     {
+        thisObj = this;
     }
 
     ~LibMain() override;
