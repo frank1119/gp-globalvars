@@ -9,5 +9,3 @@ help.txt
 
 # Build output
 build/
-/CMakeLists.txt
-/CMakePresets.json

@@ -33,7 +33,7 @@ const string XMLProductDescription =
     "  <Product"
     "    Name=\"GlobalVars\""
     "    Version=\"1.0\""
-    "    BuildDate=\"08/18/2022\">"
+    "    BuildDate=\"06/13/2024\">"
     "  </Product> "
     "  <Description>Support for sharing variables between all scripts. (c) 2022 F. den Blaauwen</Description>"
     "  <ImagePath>/Path/To/ImageFile/foo.jpg</ImagePath>"
